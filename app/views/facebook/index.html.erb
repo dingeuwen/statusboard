@@ -1,0 +1,25 @@
+<h1> homepage </h1>
+
+<h4>Data that I would like to have: </h4>
+<ul>
+  <li>likes over time?</li>
+  <li>posts over time?</li>
+  <li>photo uploads over time?</li>
+  <li>number of friends added over time?</li>
+</ul>
+
+<p>
+  <%= @graph.get_object("me") %>
+</p>
+<ol> photos
+  <% @graph.get_connections("me", "photos").each do |x| %>
+    <li><%= x %></li>
+  <% end %>
+</ol>
+<ol> Likes
+  <% @graph.get_connections("me", "likes").each do |x| %>
+    <li><%= x %></li>
+  <% end %>
+</ol>
+
+<p> comments? <%= @graph.get_object("me") %></p>
